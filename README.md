@@ -2,4 +2,7 @@
 
 Trying To Solve Some Problem To Improve My Algorithm Skill
 
-Problems are provided from codeforces. The name of each file shows problem number!
+In CodeForces Folder some problem are solved and the name shows number of that question.
+
+In Competetive Programming The Questions are solved from https://cses.fi/problemset/list/ and they are based on the book "Guide To Competetive Programming".
+
