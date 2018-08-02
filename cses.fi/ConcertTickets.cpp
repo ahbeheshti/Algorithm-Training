@@ -22,6 +22,35 @@ int main(int argc, char const *argv[])
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
+	InputI(n);
+	InputI(m);
+	InputAI(h , n);
+	InputAI(t , m);
+	multiset<int> p;
+	for (int i = 0; i < n; ++i)
+		p.insert(h[i]);
+	for (int i = 0; i < m; ++i)
+	{
+		if (p.size() == 0)
+		{
+			cout << -1 << "\n";
+		}
+		else
+		{
+			auto it = p.upper_bound(t[i]);
+			if (it != p.begin())
+			{
+				it--;
+				cout << *it << "\n";
+				p.erase(it);
+			}
+			else
+			{
+				cout << -1 << "\n";
+			}
+		}
+	}
+
 
 	return 0;
 }

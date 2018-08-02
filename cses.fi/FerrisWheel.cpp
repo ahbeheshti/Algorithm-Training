@@ -22,6 +22,30 @@ int main(int argc, char const *argv[])
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
+	InputI(n);
+	InputI(x);
+	InputAI(p , n);
+	sort(p , p + n);
+	int a = 0;
+	int b = n - 1;
+	int count = 0;
+	while(a < b) {
+		if (p[a] + p[b] <= x)
+		{
+			a++;
+			b--;
+			count++;
+		}
+		else
+		{
+			b--;
+			count++;
+		}
+	}
+	if (a == b)
+		count++;
+
+	cout << count;
 
 	return 0;
 }

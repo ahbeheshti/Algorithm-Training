@@ -22,6 +22,32 @@ int main(int argc, char const *argv[])
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-
+	InputI(n);
+	InputI(m);
+	InputI(k);
+	InputAI(a , n);
+	InputAI(b, m);
+	sort(a , a+n);
+	sort(b, b+m);
+	int aP = 0;
+	int bP = 0;
+	int num = 0;
+	while(aP < n && bP < m) {
+		if (b[bP] < a[aP] - k)
+		{
+			bP++;
+		}
+		else if (b[bP] <= a[aP] + k )
+		{
+			aP++;
+			bP++;
+			num++;
+		} 
+		else
+		{
+			aP++;
+		}
+	}
+	cout << num;
 	return 0;
 }
