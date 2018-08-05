@@ -1,20 +1,15 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
 
-// using namespace __gnu_pbds;
 using namespace std;
 
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int , int> pi;
-typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
 
 #define F first
 #define S second
 #define PB push_back
 #define MP make_pair
-#define LB lower_bound
-#define UB upper_bound
 #define REP(i,a,b) for (int i = a; i <= b; i++)
 #define Loop(i,n) for (int i = 0; i < n; i++)
 #define SQ(a) (a)*(a)
@@ -29,6 +24,17 @@ int main(int argc, char const *argv[])
 {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
+
+	InputLL(n);
+	ll sum = 0;
+
+	for (ll x = 2; x <= n * 2; x = x * 2)
+	{
+		sum = sum + (((n+1) - ((n+1)%x))/2);
+		if ((n+1) % x > x/2) sum += ((n+1) % x - x/2);
+	}
+
+	cout << sum;
 
 	return 0;
 }

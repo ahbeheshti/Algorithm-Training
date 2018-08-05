@@ -1,13 +1,14 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 
-// using namespace __gnu_pbds;
+using namespace __gnu_pbds;
 using namespace std;
 
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int , int> pi;
-typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
+
+template <typename T> using indexed_set =  tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>; 
 
 #define F first
 #define S second
@@ -29,6 +30,21 @@ int main(int argc, char const *argv[])
 {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
+
+	InputI(n);
+	InputI(k);
+	InputAI(a, n);
+	indexed_set<pair<int , int>> s;
+
+	Loop(i , k) s.insert({a[i] , i});
+	cout << (*(s.find_by_order((k-1)/2))).F << " ";
+
+	for (int i = k; i < n; ++i)
+	{
+		s.erase({a[i-k] , i-k});
+		s.insert({a[i] , i});
+		cout << (*(s.find_by_order((k-1)/2))).F << " ";
+	}
 
 	return 0;
 }
